@@ -37,7 +37,7 @@
         <span class="stars"><%= @book.rate %></span>
       </div>
       <div class="col-md-6 col-xs-12">
-        <% if user_signed_in? %>
+        <% if user_signed_in? && @book.bought %>
           <% if @favorite %>
             <%= label_tag "", id: "btn-ft-#{@book.id}",
               class: "btn btn-warning", onclick: "unfavorite(#{@favorite.id});" do %>
@@ -61,7 +61,7 @@
     </div>
   </div>
 </div>
-<% if user_signed_in? %>
+<% if user_signed_in? && @book.bought %>
   <div class="modal fade" id="review-modal" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">

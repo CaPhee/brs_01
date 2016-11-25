@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :category
   has_many :reviews
-  has_many :requests
+  has_one :request, dependent: :destroy
   has_many :marks
 
   validates :title, presence: true,
@@ -11,6 +11,8 @@ class Book < ApplicationRecord
   validates :number_of_pages, presence: true
   validates :introduce, presence: true,
     length: {maximum: Settings.max_lenght_book_introduce}
+
+  accepts_nested_attributes_for :request, allow_destroy: true
 
   default_scope {where deleted: false, bought: true}
 

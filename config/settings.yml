@@ -10,7 +10,7 @@ max_lenght_title: 70
 max_lenght_name: 50
 max_lenght_email: 255
 min_lenght_password: 6
-max_lenght_book_introduce: 1000
+max_lenght_book_introduce: 10000
 max_lenght_name_of_book: 255
 max_lenght_content_comment: 1000
 max_lenght_request_description: 1000

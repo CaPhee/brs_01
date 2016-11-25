@@ -31,7 +31,7 @@ categorires.each do |category|
   50.times do |n|
     category.books.create title: "books #{n}",
       publish_date: Time.now, author: "Tee #{n+1}", number_of_pages: n*n,
-      introduce: "book #{n} have #{n*n} pages and id: #{n + category.id*50}",
-      rate:  n % 5
+      introduce: Faker::Lorem.sentence(70),
+      rate: n % 5
   end
 end

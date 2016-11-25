@@ -20,4 +20,5 @@ Rails.application.routes.draw do
     resources :followers, only: :index
   end
   resources :relationships, only: [:create, :destroy]
+  resources :requests, except: [:index]
 end

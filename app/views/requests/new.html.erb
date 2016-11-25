@@ -1,0 +1,8 @@
+<% provide :title, t(".title") %>
+<% provide :button_text, t(".title") %>
+<% provide :form_method, :post %>
+<% provide :form_url, requests_path(@book) %>
+<div class="col-xs-12">
+  <h1><%= t ".title" %></h1>
+  <%= render "form" %>
+</div>

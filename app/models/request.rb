@@ -8,4 +8,8 @@ class Request < ApplicationRecord
   scope :have_processed, -> do
     joins(:book).where "processed = ? OR books.bought = ?", true, true
   end
+
+  def book
+    Book.unscoped{super}
+  end
 end

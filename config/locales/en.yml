@@ -24,6 +24,10 @@ en:
   created: "Create: %{objectClass}: '%{name}'."
   updated: "Updated: %{objectClass}: '%{name}'."
   time_ago: "%{time} ago"
+  request_has_processed: "Request has been processed."
+  lost_request_book: "Your request book was lost"
+  delete_failed: "Failed to delete %{name}"
+  delete_success: "%{name} deleted."
   rake:
     create_admin:
       input: "Input adimn profile - %{attributes}:\t"
@@ -166,6 +170,16 @@ en:
   commentators:
     form:
       save: "Comment"
+  requests:
+    new:
+      title: "Create new request."
+    edit:
+      title: "Edit request"
+      title_h1: "Edit"
+      button_text: "Update"
+    show:
+      title: "Request | %{book}"
+      description: "Request description"
   existing_mark_favorite: "Mark favorite books has existing!"
   favorite_not_found: "Favorite not found!"
   mark_book_as_favorite: "%{status} mark book as favorite."
