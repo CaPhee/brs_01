@@ -1,0 +1,7 @@
+<li class="well">
+  <%= show_avatar activity.user, Settings.avatar_min_size %>
+  <%= get_action(activity).html_safe %>
+  <small class="pull-right">
+    <%= t :action_at, time: time_ago_in_words(activity.created_at) %>
+  </small>
+</li>

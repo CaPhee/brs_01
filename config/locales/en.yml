@@ -28,6 +28,17 @@ en:
   lost_request_book: "Your request book was lost"
   delete_failed: "Failed to delete %{name}"
   delete_success: "%{name} deleted."
+  review: "review"
+  comment: "comment"
+  favorite: "favorite"
+  read: "read"
+  reading: "reading"
+  follow: "follow"
+  unfollow: "unfollow"
+  write: "%{user} write a %{post_type} - %{post} for %{target}"
+  mark: "%{user} mark book - %{book} as %{mark_type}"
+  follow_action: "%{user} %{action} user - %{followed}"
+  action_at: "at %{time} - ago"
   rake:
     create_admin:
       input: "Input adimn profile - %{attributes}:\t"
