@@ -39,6 +39,8 @@ en:
   mark: "%{user} mark book - %{book} as %{mark_type}"
   follow_action: "%{user} %{action} user - %{followed}"
   action_at: "at %{time} - ago"
+  like: "Like"
+  unlike: "Unlike"
   rake:
     create_admin:
       input: "Input adimn profile - %{attributes}:\t"

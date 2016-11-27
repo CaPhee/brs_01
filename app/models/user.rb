@@ -22,6 +22,7 @@ class User < ApplicationRecord
   has_many :books, through: :marks
   has_many :favorites, dependent: :destroy
   has_many :favorite_books, class_name: Book.name, through: :favorites, source: :book
+  has_many :likes
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true, length: {maximum: Settings.max_lenght_name}

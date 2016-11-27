@@ -26,37 +26,53 @@ module ApplicationHelper
   def get_action activity
     case activity.action_type.to_i
     when Activity.activity_types[:created]
-      case activity.target_type
-      when User.name
-        t :follow_action, user: activity.user.name, action: t(:follow),
-          followed: link_to(activity.followed.name, activity.followed)
-      when Book.name
-        t :mark, user: activity.user.name, book: show_book_title(activity.book),
-          mark_type: t(:favorite)
-      when Review.name
-        t :write, user: activity.user.name,
-          target: show_book_title(activity.review.book), post_type: t(:review),
-          post: truncate(activity.review.title, length_sub_title, separator: " ")
-      when Comment.name
-        t :write, user: activity.user.name, post: "",
-          target: show_book_title(activity.comment.title), post_type: t(:comment)
-      end
+      get_action_type_create activity
     when Activity.activity_types[:updated]
-      if activity.target_type == Book.name
-        t :mark, user: activity.user.name, book: show_book_title(activity.book),
-          mark_type: t(:reaing)
-      end
+      get_action_type_update activity
     when Activity.activity_types[:removed]
-      if activity.target_type == Book.name
-        t :mark, user: activity.user.name, book: show_book_title(activity.book),
-          mark_type: t(:read)
-      end
-      if activity.target_type == User.name
-        t :follow_action, user: activity.user.name, action: t(:unfollow),
-          followed: link_to(activity.followed.name, activity.followed)
-      end
+      get_action_type_removed activity
     else
       t :error
     end
+  end
+
+  def get_action_type_create activity
+    case activity.target_type
+    when User.name
+      t :follow_action, user: activity.user.name, action: t(:follow),
+        followed: link_to(activity.followed.name, activity.followed)
+    when Book.name
+      t :mark, user: activity.user.name, book: show_book_title(activity.book),
+        mark_type: t(:favorite)
+    when Review.name
+      t :write, user: activity.user.name,
+        target: show_book_title(activity.review.book), post_type: t(:review),
+        post: truncate(activity.review.title, length_sub_title, separator: " ")
+    when Comment.name
+      t :write, user: activity.user.name, post: "",
+        target: show_book_title(activity.comment.title), post_type: t(:comment)
+    end
+  end
+
+  def get_action_type_update activity
+    if activity.target_type == Book.name
+      t :mark, user: activity.user.name, book: show_book_title(activity.book),
+        mark_type: t(:reaing)
+    end
+  end
+
+  def get_action_type_removed activity
+    if activity.target_type == Book.name
+      t :mark, user: activity.user.name, book: show_book_title(activity.book),
+        mark_type: t(:read)
+    end
+    if activity.target_type == User.name
+      t :follow_action, user: activity.user.name, action: t(:unfollow),
+        followed: link_to(activity.followed.name, activity.followed)
+    end
+  end
+
+  def get_like activity
+    Like.find_by activity_id: activity.id, user_id: current_user.id
   end
 end

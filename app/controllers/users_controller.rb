@@ -5,8 +5,8 @@ class UsersController < ApplicationController
       flash[:danger] = t :user_not_found
       redirect_to root_url and return
     end
-    @activities = Activity.users_activities(@user.id).page(params[:page])
-      .per Settings.user.activities_per_page
+    @activities = Activity.includes(:likes).users_activities(@user.id)
+      .page(params[:page]).per Settings.user.activities_per_page
     @reading_books = current_user.books.reading.page(params[:page])
       .per Settings.user.activities_per_page
     @read_books = current_user.books.read.page(params[:page])

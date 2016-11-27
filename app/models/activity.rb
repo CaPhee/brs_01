@@ -1,5 +1,6 @@
 class Activity < ApplicationRecord
   belongs_to :user
+  has_many :likes, dependent: :destroy
 
   enum activity_types: [:created, :updated, :removed]
 
