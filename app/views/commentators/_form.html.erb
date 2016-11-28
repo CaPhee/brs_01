@@ -1,9 +1,0 @@
-<%= form_for @commentator do |f| %>
-  <%= f.hidden_field :review_id %>
-  <%= f.fields_for :comment do |answer| %>
-  <div class="form-group">
-    <%= answer.text_area :content, class: "form-control" %>
-  </div>
-  <% end %>
-  <%= f.submit t(".save"), class: "btn btn-primary form-control" %>
-<% end %>

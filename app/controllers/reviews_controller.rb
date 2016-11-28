@@ -26,11 +26,11 @@ class ReviewsController < ApplicationController
 
   def show
     @book = @review.book
-    @comments = @review.comments
+    @comments = @review.comments.page(params[:page]).per Settings.per_page_comments
     if user_signed_in?
       @reading_books = current_user.books.reading
       @read_books = current_user.books.read
-      @commentator = current_user.commentators.build review_id: @review.id
+      @comment = Comment.new
     end
   end
 

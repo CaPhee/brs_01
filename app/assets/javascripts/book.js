@@ -190,3 +190,18 @@ $(document).ready(function() {
 $(document).on('turbolinks:load', function() {
   init_config_book();
 });
+function deleteComment(id,strConfirm){
+  if (confirm(strConfirm)) {
+    $.ajax({
+      type: 'DELETE',
+      url: '/comments/' + id,
+      dataType: 'script',
+      success: function(data){
+        $('#comment-' + id).fadeOut('slow');
+      },
+      error: function(error_message) {
+        $("#connect_failed").show();
+      }
+    });
+  }
+}

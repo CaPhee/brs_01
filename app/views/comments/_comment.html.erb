@@ -1,0 +1,21 @@
+<div class="media well" id="comment-<%= comment.id %>">
+  <div class="pull-left" href="#">
+    <%= show_avatar comment.user, Settings.avatar_min_size %>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= link_to comment.user.name, "#" %>
+      <small><%= t :time_ago, time: time_ago_in_words(comment.created_at) %></small>
+    </h4>
+    <p>
+      <%= comment.content %>
+    </p>
+    <% if can? :update, comment %>
+      <%= link_to t(:edit), edit_comment_path(comment),
+        class: "btn btn-warning" %>
+      <%= button_tag t(:delete), class: "btn btn-danger",
+        onclick: "deleteComment(#{comment.id},'#{t :confirm_delete,
+          type: Comment.name, name: comment.id}');" %>
+    <% end %>
+  </div>
+</div>

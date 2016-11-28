@@ -1,4 +1,5 @@
 <% provide :title, @review.title %>
+<% provide :button_text, t(".button_text") %>
 <div class="row">
   <div class="container book-background">
     <%= render "books/book_info" %>
@@ -71,7 +72,7 @@
   </div>
   <div class="row">
     <div class="col-md-10 col-xs-12 pull-right">
-      <%= render "commentators/form" %>
+      <%= render "comments/form" %>
     </div>
   </div>
 </div>

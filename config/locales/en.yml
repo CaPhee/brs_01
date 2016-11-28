@@ -23,6 +23,7 @@ en:
   not_fould: "%{objectClass} not found!!!"
   created: "Create: %{objectClass}: '%{name}'."
   updated: "Updated: %{objectClass}: '%{name}'."
+  add_comment: "Added comment for '%{name}'."
   time_ago: "%{time} ago"
   request_has_processed: "Request has been processed."
   lost_request_book: "Your request book was lost"
@@ -45,6 +46,7 @@ en:
   read: "Read"
   mark_book_success: "success to mark book"
   mark_book_failed: "failed to mark book"
+  comment_failed: "failed to create comment"
   sexs:
     male: "Male"
     female: "Female"
@@ -165,9 +167,13 @@ en:
     edit:
       rate: "Rate"
     show:
+      button_text: "Comment"
       comment: "%{size} comment"
       comments: "Comments"
-  commentators:
+  comments:
+    edit:
+      title: "Edit comment"
+      button_text: "Save"
     form:
       save: "Comment"
   requests:

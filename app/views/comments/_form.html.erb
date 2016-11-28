@@ -1,0 +1,7 @@
+<%= form_for @comment do |f| %>
+  <%= hidden_field_tag :review_id, @comment.review_id || @review.id  %>
+  <div class="form-group">
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <%= f.submit yield(:button_text), class: "btn btn-primary form-control" %>
+<% end %>

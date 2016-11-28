@@ -14,11 +14,11 @@ Rails.application.routes.draw do
   resources :marks
   resources :favorites, only: [:index, :create, :destroy]
   resources :reviews, except: [:new, :index]
-  resources :commentators
   resources :users, only: :show do
     resources :following, only: :index
     resources :followers, only: :index
   end
   resources :relationships, only: [:create, :destroy]
   resources :requests, except: [:index]
+  resources :comments, except: [:new, :show, :index]
 end
