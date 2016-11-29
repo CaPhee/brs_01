@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
     @book.request.user_id = current_user.id
     if @book.save
       flash[:info] = t :created, objectClass: :request, name: @book.title
-      redirect_to @request
+      redirect_to @book.request
     else
       render :new
     end

@@ -239,3 +239,43 @@ span.stars span {
 .author{
   vertical-align: center;
 }
+.well{
+  vertical-align: middle;
+}
+.nav > li > label {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+.nav > li > label:hover, .nav > li > label:focus {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+.nav > li.disabled > label {
+  color: #777777;
+}
+.nav > li.disabled > label:hover, .nav > li.disabled > label:focus {
+  color: #777777;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: not-allowed;
+}
+.nav .open > label, .nav .open > label:hover, .nav .open > label:focus {
+  background-color: #eeeeee;
+  border-color: #337ab7;
+}
+.nav > li > label {
+    color: #337ab7;
+    text-decoration: none;
+}
+.nav > li > label {
+    background-color: transparent;
+}
+.nav-tabs > li.active > label, .nav-tabs > li.active > label:hover,
+ .nav-tabs > li.active > label:focus {
+    color: #555555;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+}

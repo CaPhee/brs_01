@@ -4,21 +4,26 @@
   <div class="col-md-7 col-xs-12">
     <div class="col-md-12 panel panel-success">
       <ul class="nav nav-tabs">
-        <li id="user-activities">
-          <%= link_to t(".activities"), user_path(@user, view: :activities) %>
+        <li id="user-activities" class="user-tabs active"
+          onclick="openContentTimeline('user-activities');">
+          <%= label_tag t(".activities") %>
         </li>
-        <li id="user-read_books" class="active">
-          <%= link_to t(".read_books"), user_path(@user, view: :read_books) %>
+        <li id="user-read_books" class="user-tabs"
+          onclick="openContentTimeline('user-read_books');">
+          <%= label_tag t(".read_books") %>
         </li>
-        <li id="user-reading_books">
-          <%= link_to t(".reading_books"), user_path(@user, view: :reading_books) %>
+        <li id="user-reading_books" class="user-tabs"
+          onclick="openContentTimeline('user-reading_books');">
+          <%= label_tag t(".reading_books") %>
         </li>
-        <li id="user-favorites">
-          <%= link_to t(".favorites"), user_path(@user, view: :favorites) %>
+        <li id="user-favorites" class="user-tabs"
+          onclick="openContentTimeline('user-favorites');">
+          <%= label_tag t(".favorites") %>
         </li>
         <% if user_signed_in? && current_user == @user %>
-          <li id="user-requests">
-            <%= link_to t(".requests"), user_path(@user, view: :requests) %>
+          <li id="user-requests" class="user-tabs"
+            onclick="openContentTimeline('user-requests');">
+            <%= label_tag t(".requests") %>
           </li>
         <% end %>
       </ul>
@@ -26,6 +31,48 @@
         <h1 class="panel-title title_header"></h1>
       </div>
       <div class="panel-body" id="panel-activities">
+        <% if @activities.any? %>
+          <div id="user-activities-content" class="user-content">
+            <%= render @activities %>
+            <div class="row pull-right">
+              <%= paginate @activities, theme: "twitter-bootstrap-3",
+                param_name: :page_activities %>
+            </div>
+          </div>
+        <% end %>
+        <% if @reading_books.any? %>
+          <div id="user-reading_books-content" class="user-content" hidden>
+            <% @reading_books.each do |book| %>
+              <%= render "books/book_well", book: book %>
+            <% end %>
+            <div class="row pull-right">
+              <%= paginate @reading_books, theme: "twitter-bootstrap-3",
+                param_name: :page_reading_books %>
+            </div>
+          </div>
+        <% end %>
+        <% if @read_books.any? %>
+          <div id="user-read_books-content" class="user-content" hidden>
+            <% @read_books.each do |book| %>
+              <%= render "books/book_well", book: book %>
+            <% end %>
+            <div class="row pull-right">
+              <%= paginate @read_books, theme: "twitter-bootstrap-3",
+                param_name: :page_read_books %>
+            </div>
+          </div>
+        <% end %>
+        <% if @favorites.any? %>
+          <div id="user-favorites-content" class="user-content" hidden>
+            <% @favorites.each do |book| %>
+              <%= render "books/book_well", book: book %>
+            <% end %>
+            <div class="row pull-right">
+              <%= paginate @favorites, theme: "twitter-bootstrap-3",
+                param_name: :page_favorites %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
