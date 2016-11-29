@@ -2,6 +2,7 @@ default_icon: "root_icon.png"
 default_avata: "/assets/user-default.png"
 icon_size: "80x80"
 size_of_book_cover: "200x300"
+min_size_of_book_cover: "100x150"
 default_book_conver: "default-book-cover.jpg"
 avatar_size: "130x130"
 avatar_min_size: "70x70"
@@ -25,3 +26,5 @@ book:
   per_page_review: 12
 user:
   user_per_page: 12
+  activities_per_page: 10
+  size_of_book_cover: "66x95"

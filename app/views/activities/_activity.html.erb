@@ -1,0 +1,26 @@
+<li class="well">
+  <div>
+    <%= show_avatar activity.user, Settings.avatar_min_size %>
+    <%= get_action(activity).html_safe %>
+    <small class="pull-right">
+      <%= t :action_at, time: time_ago_in_words(activity.created_at) %>
+    </small>
+  </div>
+  <div class="pull-right">
+    <div>
+      <i id="likes-<%= "#{activity.id}" %>">
+        <%= activity.likes.size %>
+      </i>
+      <i class="glyphicon glyphicon-thumbs-up"></i>
+      <i id="like-<%= "#{activity.id}" %>">
+        <% if user_signed_in? %>
+          <% if like = (get_like activity) %>
+            <%= render "likes/unlike", like: like %>
+          <% else %>
+            <%= render "likes/like", activity: activity %>
+          <% end %>
+        <% end %>
+      </i>
+    </div>
+  </div>
+</li>

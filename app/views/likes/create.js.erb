@@ -1,0 +1,8 @@
+$('#likes-<%= "#{@like.activity.id}" %>').html(
+  '<%= @like.activity.likes.size %>'
+);
+$('#like-<%= "#{@like.activity.id}" %>').html(
+  '<%= j render "likes/unlike", like: @like %>'
+);
+$('#flash-messages').html('<%= j render "layouts/flash", messages: @messages %>');
+fadeOutMessage();

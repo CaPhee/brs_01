@@ -1,5 +1,5 @@
 <% provide :title, t(".title", name: @user.name) %>
-<% provide :header_title, t(:all) %>
+<% provide :header_title, t(".header_title") %>
 <% provide :search_id, "search_follows_box" %>
 <% provide :path_search, user_following_index_path(@user) %>
 <%= render "users/users" %>

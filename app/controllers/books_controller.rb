@@ -15,6 +15,9 @@ class BooksController < ApplicationController
       @review = Review.new book_id: @book.id
       @reviews = @book.reviews.page(params[:page])
         .per Settings.book.per_page_review
+      if user_signed_in?
+        @favorite = Favorite.find_by book_id: @book.id, user_id: current_user.id
+      end
     else
       flash[:danger] = t :not_fould, objectClass: Book.name
       redirect_to root_url

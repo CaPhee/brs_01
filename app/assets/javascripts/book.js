@@ -183,6 +183,7 @@ function init_config_book() {
     jQuery(this).find('.dropdown-menu').stop(true, true).delay(500).fadeOut(500);
   });
   fadeOutMessage();
+  config_ckediot();
 }
 $(document).ready(function() {
   init_config_book();

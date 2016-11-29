@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
   resources :requests, except: [:index]
+  resources :likes, only: [:create, :destroy]
 end

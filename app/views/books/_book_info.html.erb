@@ -39,8 +39,8 @@
       <div class="col-md-6 col-xs-12">
         <% if user_signed_in? && @book.bought %>
           <% if @favorite %>
-            <%= label_tag "", id: "btn-ft-#{@book.id}",
-              class: "btn btn-warning", onclick: "unfavorite(#{@favorite.id});" do %>
+            <%= label_tag "", id: "btn-ft-#{@book.id}", class: "btn btn-warning",
+              onclick: "unfavorite(#{@favorite.id}, #{@book.id});" do %>
               <i class="glyphicon glyphicon-bookmark"></i>
               <%= t ".favorite" %>
             <% end %>

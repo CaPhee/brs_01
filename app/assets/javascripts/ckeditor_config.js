@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  config_ckediot();
+});
+function config_ckediot() {
   CKEDITOR.config.height = 400;
   if ($('textarea').length > 0) {
     var data = $('.ckeditor');
@@ -20,4 +23,4 @@ $(document).ready(function(){
       })
     });
   }
-});
+}
