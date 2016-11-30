@@ -1,0 +1,5 @@
+<li class="well">
+  <%= link_to image_tag(request.book.cover, alt: request.title,
+    size: Settings.user.size_of_book_cover, class: "book-cover"), request %>
+  <%= show_book_title request.book %> - <%= request.book.author %>
+</li>

@@ -1,8 +1,8 @@
 class RequestsController < ApplicationController
-  authorize_resource
   before_action :load_request, except: [:index, :new, :create]
   before_action :processed?, only: [:edit, :update]
   before_action :load_category, except: [:update, :destroy]
+  authorize_resource
 
   def new
     @book = Book.new
@@ -43,7 +43,7 @@ class RequestsController < ApplicationController
     else
       flash[:danger] = t :delete_failed, name: :request
     end
-    redirect_to admin_requests_path
+    redirect_to root_url
   end
 
   private

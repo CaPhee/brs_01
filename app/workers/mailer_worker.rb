@@ -1,11 +1,14 @@
 class MailerWorker
   include Sidekiq::Worker
 
+  MAIL_DELETE_REQUEST = 0
   MAIL_APPROVED_REQUEST = 1
   MAIL_NOTIFICATION = 2
 
   def perform action, object_notifica_id, object_notifica_type
     case action
+    when MAIL_DELETE_REQUEST
+      send_mail_approved_request Request.unscoped.find_by id: object_notifica_id
     when MAIL_APPROVED_REQUEST
       Request.have_processed.each do |request|
         send_mail_approved_request request

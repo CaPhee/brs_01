@@ -47,6 +47,8 @@ en:
   action_at: "at %{time} - ago"
   like: "Like"
   unlike: "Unlike"
+  remove_processed_request: "Remove requests has been processed"
+  create_admin: "Create admin account"
   rake:
     create_admin:
       input: "Input adimn profile - %{attributes}:\t"
@@ -92,7 +94,6 @@ en:
         not_confirmation: "Didn't receive confirmation instructions?"
         not_unlock: "Didn't receive unlock instructions?"
         sign_in_with: "Sign in with %{with}"
-    approved_request: "Approved books requests."
   notification: "%{user} has make a new %{new_object} at %{title}"
   hello: "Hi %{name}"
   user_mailer:

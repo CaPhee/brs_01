@@ -13,6 +13,8 @@ class UsersController < ApplicationController
       .per Settings.user.activities_per_page
     @favorites = @user.favorite_books.page(params[:page_favorites])
       .per Settings.user.activities_per_page
+    @requests = @user.requests.page(params[:page_requests])
+      .per Settings.user.activities_per_page
     if user_signed_in?
       @relationship = current_user.active_relationships
         .find_or_initialize_by followed_id: @user.id

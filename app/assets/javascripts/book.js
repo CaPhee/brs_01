@@ -21,7 +21,7 @@ blackStar = '<span class="review-rate">&#9733;</span>';
 $.fn.rate = function() {
   return $(this).each(function() {
     var val = parseInt($(this).html());
-    if (val > 0) {
+    if (val >= 0) {
       html = '';
       for (var i = 0; i < val; i++) {
         html += blackStar;

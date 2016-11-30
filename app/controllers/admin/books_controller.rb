@@ -1,9 +1,9 @@
 class Admin::BooksController < ApplicationController
   layout "layouts/admin_layout"
-  authorize_resource :book
   before_action :load_book, only: [:edit, :update, :destroy]
   before_action :load_category, except: [:update, :destroy]
   before_action :new_book, only: [:index, :new]
+  authorize_resource :book
 
   def index
     @books = Book.search(params[:key]).of_category(params[:category_id]).order(:title)
@@ -36,7 +36,7 @@ class Admin::BooksController < ApplicationController
   end
 
   def destroy
-    unless @book.destroy
+    unless @book.delete
       flash[:warning] = t :failed, name: @book.title
       redirect_to admin_books_path
     end

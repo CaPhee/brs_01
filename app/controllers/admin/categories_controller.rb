@@ -1,7 +1,7 @@
 class Admin::CategoriesController < ApplicationController
   layout "layouts/admin_layout"
-  authorize_resource :category
   before_action :load_category, only: [:edit, :update, :destroy]
+  authorize_resource :category
 
   def index
     @categories = Category.search(params[:key]).page params[:page]
@@ -35,7 +35,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    unless @category.destroy
+    unless @category.delete
       flash[:warning] = t :failed, name: @category.name
       redirect_to admin_categories_path
     end
@@ -47,6 +47,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def load_category
+    @category = Category.find_by id: params[:id]
     unless @category
       flash[:danger] = t :not_fould, objectClass: Category.name
       redirect_to admin_categories_path

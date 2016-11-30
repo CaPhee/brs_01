@@ -21,12 +21,12 @@ class Admin::RequestsController < ApplicationController
   end
 
   def destroy
-    if @request.destroy
+    if @request.delete
       flash[:warning] = t :delete_success, name: :request
     else
       flash[:danger] = t :delete_failed, name: :request
     end
-    redirect_to root_url
+    redirect_to admin_requests_path
   end
 
   private

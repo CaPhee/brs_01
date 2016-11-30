@@ -21,7 +21,7 @@ function deleteRequest(id,strConfirm){
   if (confirm(strConfirm)) {
     $.ajax({
       type: 'DELETE',
-      url: '/requests/' + id,
+      url: 'requests/' + id,
       success: function(data){
         $("#tr_request_id_" + id).fadeOut('slow');
       },

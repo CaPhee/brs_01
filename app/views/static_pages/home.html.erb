@@ -50,7 +50,7 @@
     <% end %>
   </section>
 </div>
-<% if user_signed_in? %>
+<% unless user_signed_in? %>
   <div class="jumbotron row">
     <h2><%= t :wellcome_to %></h2>
     <%= link_to t(:sign_up_now), "#",

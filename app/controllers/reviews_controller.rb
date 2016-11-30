@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  authorize_resource :review
   before_action :load_review, except: [:new, :create, :index]
+  authorize_resource :review
 
   def create
     @review = current_user.reviews.build review_params
@@ -32,6 +32,15 @@ class ReviewsController < ApplicationController
       @read_books = current_user.books.read
       @comment = Comment.new
     end
+  end
+
+  def destroy
+    if @review.delete
+      flash[:warning] = t :delete_success, name: :reviews
+    else
+      flash[:danger] = t :delete_failed, name: :reviews
+    end
+    redirect_to root_url
   end
 
   private

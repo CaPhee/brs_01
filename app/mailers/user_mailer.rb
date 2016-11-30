@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
   def approved_request request
     @request = request
-    mail to: request.user.email, subject: I18n.t(:approved_request)
+    mail to: request.user.email, subject: I18n.t(:request_has_processed)
   end
 
   def notification notifica, user

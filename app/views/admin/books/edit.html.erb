@@ -1,7 +1,7 @@
 <% provide :title, t(".title", name: @book.title) %>
 <% provide :button_text, t(".button_text") %>
 <% provide :form_method, :patch %>
-<% provide :form_url, request_path(@request) %>
+<% provide :form_url, admin_book_path(@book) %>
 <div class="col-xs-12">
   <h1><%= t ".title_h1" %></h1>
   <%= render "form" %>

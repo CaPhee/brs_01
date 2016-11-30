@@ -18,6 +18,15 @@ class Review < ApplicationRecord
   after_save :update_rate_of_book
   after_create :mail_notifica_other_reviewer
 
+  def book
+    Book.unscoped{super}
+  end
+
+  def delete
+    Commentator.delete_commentators_of_review id
+    self.update_attributes deleted: true
+  end
+
   private
   def update_rate_of_book
     book.rate = get_new_rate

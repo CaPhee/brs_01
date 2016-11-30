@@ -28,11 +28,10 @@ namespace :admin do
       end
     end
   end
+  desc I18n.t :remove_processed_request
   task remove_processed_request: :environment do
-    if Request.have_processed.destroy_all
-      puts I18n.t :destroy_request
-    else
-      puts I18n.t :error
+    Request.have_processed.each do |request|
+      request.destroy
     end
   end
 end

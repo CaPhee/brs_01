@@ -73,6 +73,17 @@
             </div>
           </div>
         <% end %>
+        <% if @requests.any? %>
+          <div id="user-favorites-content" class="user-content" hidden>
+            <% @requests.each do |request| %>
+              <%= render "requests/request_well", request: request %>
+            <% end %>
+            <div class="row pull-right">
+              <%= paginate @requests, theme: "twitter-bootstrap-3",
+                param_name: :page_requests %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

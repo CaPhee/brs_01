@@ -9,7 +9,7 @@ function slider(index){
       $("#slider-show").fadeOut(2000, function() {
         slider(nextIndex);
       });
-    },3000);
+    },5000);
   });
 }
 

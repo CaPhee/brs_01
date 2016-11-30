@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
-  authorize_resource
   before_action :load_like, only: :destroy
+  authorize_resource
 
   def create
     @messages = Hash.new

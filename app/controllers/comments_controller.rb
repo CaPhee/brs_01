@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  authorize_resource :comment
   before_action :load_comment, only: [:edit, :update, :destroy]
   before_action :load_commentator, only: :create
+  authorize_resource :comment
 
   def create
     @comment = @commentator.comments.build comment_params

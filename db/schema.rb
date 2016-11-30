@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20161122041820) do
     t.integer  "user_id"
     t.string   "description"
     t.boolean  "processed",   default: false
+    t.boolean  "deleted",     default: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["book_id"], name: "index_requests_on_book_id"

@@ -6,4 +6,9 @@ class Category < ApplicationRecord
 
   default_scope {where deleted: false}
   scope :search, ->keyword {where "name LIKE ?", "%#{keyword}%"}
+
+  def delete
+    Book.delete_books_of_category id
+    self.update_attributes deleted: true
+  end
 end

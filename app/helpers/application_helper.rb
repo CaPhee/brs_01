@@ -24,7 +24,7 @@ module ApplicationHelper
   end
 
   def get_action activity
-    case activity.action_type
+    case activity.action_type.to_i
     when Activity.activity_types[:created]
       get_action_type_create activity
     when Activity.activity_types[:updated]
@@ -50,7 +50,7 @@ module ApplicationHelper
         post: truncate(activity.review.title, length_sub_title, separator: " ")
     when Comment.name
       t :write, user: activity.user.name, post: "",
-        target: show_book_title(activity.comment.title), post_type: t(:comment)
+        target: show_book_title(activity.comment), post_type: t(:comment)
     end
   end
 
